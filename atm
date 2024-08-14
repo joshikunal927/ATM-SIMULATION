@@ -1,0 +1,71 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+    /* options 1 existing user and 2 new user
+    if new acc so input name pan aadhar phone email and ask to deposit min amt ie 5k and print them all and ask to confirm details then create acc
+    if exixting then pin withdraw deposit change crediantials*/
+    cout<<"\n\n-----------------------------------------------------BANK OF INDIA----------------------------------------------------------------------------\n\n\n";
+    int select;
+    tryagain:
+    cout<<"Select one below option"<<"\n"<<"1. New Account \n2. Exixting Account \n3. EXIT\n\n";
+    cin>>select;
+
+    if(select==1){
+        string fullName,pan,email;
+        int aadhar,phone;
+
+        cout<<"------------NEW ACCOUNT CREATION----------------"<<"\n\n\n";
+        startover:
+        cout<<"ENTER YOUR DETAILS\n";
+        cout<<"NAME : ";
+        cin.ignore();     //imp concept of buffer new line character for using getline 
+        getline (cin, fullName);
+        cout<<"PHONE : ";
+        cin>>phone;
+        
+        cout<<"Aadhar NUMBER : ";
+        cin>>aadhar;
+        cout<<"EMAIL : ";
+        cin.ignore();
+        getline(cin,email);
+        cout<<"PAN NUMBER : ";
+        cin.ignore();
+        getline(cin,pan);
+        int op;
+        cout<<"\n\nCONFIRM YOUR CREDIANTIALS \n";
+        cout<<"NAME : "<<fullName<<"\n"<<"PHONE : "<<phone<<"\n"<<"EMAIL : "<<email<<"\n";
+        cout<<"AADHAR : "<<aadhar<<"\n"<<"PAN : "<<pan<<"\n\n";
+        ok:
+        cout<<"SELECT : \n1. CONFIRM CREDIANTIALS\n2. CHANGE CREDIANTIALS\n";
+        cin>>op;
+        if(op==1){
+            cout<<"\n\nACCOUNT SUCCESSFULLY CREATED\n\nDEPOSIT MIN AMOUNT 5000 ON THE COUNTER TO CONFIRM YOUR ACCOUNT ACTIVATION\n\n";
+        }
+        else if(op==2){
+            goto startover;
+        }
+        else{
+            cout<<"INVALID OPTION PLEASE SELECT AGAIN";
+            goto ok;
+        }
+        
+
+    }
+    else if(select==2){
+        cout<<"---------------EXISTING ACCOUNT---------------"<<"\n\n\n";
+    }
+    else if(select==3){
+        cout<<"-----------------EXIT SUCCESSFULL-----------------------";
+    }
+    else{
+        cout<<"----INVALID OPTION-----"<<"\n\n"<<"TRY AGAIN\n\n";
+        goto tryagain;
+    }
+    
+
+
+
+
+    return 0;
+}
